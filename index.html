@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Spotify Preview</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Tamma" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+  </head>
+
+  <body>
+    <div class="container">
+        <div class="row">
+          <div class="col-sm-6 col-sm-offset-3">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <h1>Spotify Preview</h1>
+                <input type="text" id="input" class="form-control" placeholder="Busca un artista o canción">
+                
+                <div class="tracks">
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <script id="songs-template" type="text/x-handlebars-template">
+      {{#each results}}
+        <div class="media">
+          <div class="media-left">
+            <img class="media-object song-img" src="{{album.images.[0].url}}"/>
+          </div>
+          <div class="media-body">
+            <h3 class="media-heading">{{name}}</h3>
+            <span> {{artists.[0].name}}</span>
+            <div class="preview-song">
+              <audio controls><source src="{{preview_url}}" type="audio/mp3"></audio>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    </script>
+
+    <script src="js/app.js"></script>
+  </body>
+</html>
